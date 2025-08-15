@@ -98,8 +98,8 @@ function sendWhatsApp(type) {
         case 'sitio-web':
             message = 'Hola! Me interesa conocer más sobre sus servicios de creación de sitios web para mi negocio. ¿Podrían proporcionarme información sobre precios y proceso?';
             break;
-        case 'soluciones':
-            message = 'Hola! Estoy buscando soluciones tecnológicas para optimizar los procesos de mi empresa. ¿Podrían asesorarme?';
+        case 'marca':
+            message = 'Hola! Me interesa conocer más sobre sus servicios de construcción de marca y diseño de identidad corporativa. ¿Podrían proporcionarme información?';
             break;
         case 'cotizacion':
             message = 'Hola! Me gustaría solicitar una cotización personalizada para mi proyecto. ¿Podrían contactarme?';
