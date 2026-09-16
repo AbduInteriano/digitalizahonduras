@@ -130,37 +130,49 @@
             : '0 2px 4px rgba(25, 40, 76, 0.1)';
     }, { passive: true });
 
-    // Product accordion
-    const explorer = document.getElementById('productExplorer');
-    if (explorer) {
-        const items = Array.from(explorer.querySelectorAll('.product-item'));
+    // Product showcase tabs
+    const showcase = document.getElementById('productShowcase');
+    if (showcase) {
+        const tabs = Array.from(showcase.querySelectorAll('.product-tab'));
+        const cards = Array.from(showcase.querySelectorAll('.product-stage-card'));
 
-        function openItem(item) {
-            items.forEach((el) => {
-                const trigger = el.querySelector('.product-trigger');
-                const panel = el.querySelector('.product-panel');
-                const isTarget = el === item;
-                el.classList.toggle('is-open', isTarget);
-                if (trigger) trigger.setAttribute('aria-expanded', isTarget ? 'true' : 'false');
-                if (panel) {
-                    if (isTarget) panel.removeAttribute('hidden');
-                    else panel.setAttribute('hidden', '');
+        function selectProduct(productId) {
+            tabs.forEach((tab) => {
+                const active = tab.getAttribute('data-product') === productId;
+                tab.classList.toggle('is-active', active);
+                tab.setAttribute('aria-selected', active ? 'true' : 'false');
+                if (active) {
+                    tab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
                 }
+            });
+
+            cards.forEach((card) => {
+                const active = card.getAttribute('data-product') === productId;
+                card.classList.toggle('is-active', active);
+                if (active) card.removeAttribute('hidden');
+                else card.setAttribute('hidden', '');
             });
         }
 
-        items.forEach((item) => {
-            const trigger = item.querySelector('.product-trigger');
-            if (!trigger) return;
-            trigger.addEventListener('click', () => {
-                if (item.classList.contains('is-open')) {
-                    item.classList.remove('is-open');
-                    trigger.setAttribute('aria-expanded', 'false');
-                    const panel = item.querySelector('.product-panel');
-                    if (panel) panel.setAttribute('hidden', '');
-                    return;
+        tabs.forEach((tab) => {
+            tab.addEventListener('click', () => {
+                selectProduct(tab.getAttribute('data-product'));
+            });
+
+            tab.addEventListener('keydown', (e) => {
+                const index = tabs.indexOf(tab);
+                if (e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    const next = tabs[(index + 1) % tabs.length];
+                    next.focus();
+                    selectProduct(next.getAttribute('data-product'));
                 }
-                openItem(item);
+                if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    const prev = tabs[(index - 1 + tabs.length) % tabs.length];
+                    prev.focus();
+                    selectProduct(prev.getAttribute('data-product'));
+                }
             });
         });
     }
@@ -282,7 +294,7 @@
         });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-    document.querySelectorAll('.product-item, .industry-card, .product-detail, .why-feature').forEach((el) => {
+    document.querySelectorAll('.product-showcase, .industry-card, .product-detail, .why-feature').forEach((el) => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(24px)';
         el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
