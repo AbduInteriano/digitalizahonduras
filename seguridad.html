@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguridad del sitio - Digitaliza Honduras</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html"><h2>Digitaliza Honduras</h2></a>
+            </div>
+            <div class="nav-menu-container">
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
+                    <li class="nav-item"><a href="index.html#contacto" class="nav-link">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="service-hero">
+        <div class="container">
+            <div class="service-hero-content">
+                <div class="service-badge"><span>Producción</span></div>
+                <h1>Medidas de seguridad del sitio</h1>
+                <p class="hero-subtitle">Resumen de protecciones aplicadas para publicación en línea.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="product-detail-section">
+        <div class="container">
+            <div class="product-detail">
+                <h3>Qué ya está implementado</h3>
+                <ul class="service-features">
+                    <li>Cabeceras HTTP de seguridad (.htaccess y _headers)</li>
+                    <li>Content-Security-Policy para limitar scripts y frames</li>
+                    <li>Anti-clickjacking (X-Frame-Options / frame-ancestors)</li>
+                    <li>Formulario con honeypot, tiempo mínimo y cooldown</li>
+                    <li>Sanitización de entradas y sin innerHTML con datos del usuario</li>
+                    <li>Scripts externos con defer</li>
+                    <li>Sin listado de directorios y bloqueo de archivos sensibles</li>
+                </ul>
+            </div>
+            <div class="product-detail">
+                <h3>Recomendado en el hosting</h3>
+                <ul class="service-features">
+                    <li>HTTPS obligatorio (certificado SSL)</li>
+                    <li>WAF / Cloudflare delante del dominio</li>
+                    <li>Backups automáticos del hosting</li>
+                    <li>Actualizar el número real de WhatsApp antes de publicar</li>
+                    <li>No subir .env, claves ni paneles admin a este repo estático</li>
+                </ul>
+                <div class="products-cta">
+                    <a href="index.html" class="btn btn-primary">Volver al inicio</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Digitaliza Honduras.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
