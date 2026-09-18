@@ -3,12 +3,18 @@
   Sube este archivo a la raíz del sitio.
 */
 
-# Forzar HTTPS si el hosting lo soporta
+DirectoryIndex index.html
+
+# Forzar HTTPS y dominio canónico (sin www)
 <IfModule mod_rewrite.c>
   RewriteEngine On
+
   RewriteCond %{HTTPS} !=on
   RewriteCond %{HTTP:X-Forwarded-Proto} !https
   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  RewriteCond %{HTTP_HOST} ^www\.dghonduras\.com$ [NC]
+  RewriteRule ^ https://dghonduras.com%{REQUEST_URI} [L,R=301]
 </IfModule>
 
 <IfModule mod_headers.c>

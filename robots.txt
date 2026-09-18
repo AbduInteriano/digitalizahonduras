@@ -5,4 +5,4 @@ Disallow: /.git/
 Disallow: /.htaccess
 Disallow: /seguridad.html
 
-Sitemap: https://digitalizahonduras.com/sitemap.xml
+Sitemap: https://dghonduras.com/sitemap.xml
